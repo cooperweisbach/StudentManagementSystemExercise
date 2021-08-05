@@ -1,11 +1,28 @@
 package org.perscholas.studentmanagementsystemexercise.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.perscholas.studentmanagementsystemexercise.dao.CourseRepo;
+import org.perscholas.studentmanagementsystemexercise.models.Course;
+import org.perscholas.studentmanagementsystemexercise.models.Users;
+import org.perscholas.studentmanagementsystemexercise.services.CourseService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.perscholas.studentmanagementsystemexercise.services.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Controller
 @Slf4j
+@SessionAttributes("user")
 public class HomeController {
 
     private UsersService usersService;
